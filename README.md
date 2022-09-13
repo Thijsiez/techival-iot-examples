@@ -2,6 +2,7 @@
 This repository contains some code examples showcasing a few light effects for the LOLIN RGB LED Shield based on measurements from the Capacitive Soil Moisture Sensor.  
 Since the sensor is capacitive, it'll detect/measure more than just wet soil. You should be able to use your finger on the sensor to test the code instead of needing a glass of water :)
 - **SimpleFade** changes color from red to blue on all LEDs
+- **SimpleCircle** fills the outer LED circle with green
 
 ## Arduino IDE Settings
 To upload code to the WEMOS S2 Mini, the Arduino IDE should be set to the following settings under the _Tools_ menu.
