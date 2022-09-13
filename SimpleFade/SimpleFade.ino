@@ -18,13 +18,15 @@ void setup() {
 }
 
 void loop() {
-  int wetness = analogRead(SENSE_PIN);
-  Serial.println(wetness);
+  int dryness = analogRead(SENSE_PIN);
+  Serial.println(dryness);
 
-  int colorValue = ((float)wetness - WET_VAL) / stepValue;
+  int redValue = ((float)dryness - WET_VAL) / stepValue;
 
   for (int i = 0; i < LED_NUM; i++) {
-    leds.setPixelColor(i, colorValue, 0, 256 - colorValue);
+    leds.setPixelColor(i, redValue, 0, 256 - redValue);
   }
   leds.show();
+
+  delay(10);
 }

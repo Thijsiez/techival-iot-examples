@@ -8,6 +8,7 @@
 #define WET_VAL 4000
 
 Adafruit_NeoPixel leds = Adafruit_NeoPixel(LED_NUM, LEDS_PIN, NEO_GRB + NEO_KHZ800);
+//We make the steps 6x smaller so each of the 6 LEDs in the outer ring get 256 steps
 const float stepValue = (float)(DRY_VAL - WET_VAL) / 256.0 / 6.0;
 
 void setup() {
@@ -18,10 +19,10 @@ void setup() {
 }
 
 void loop() {
-  int wetness = analogRead(SENSE_PIN);
-  Serial.println(wetness);
+  int dryness = analogRead(SENSE_PIN);
+  Serial.println(dryness);
 
-  int progress = 1536 - ((float)wetness - WET_VAL) / stepValue;
+  int progress = 1536 - ((float)dryness - WET_VAL) / stepValue;
 
   int fullOnLeds = progress / 256 + 1;
   for (int i = 1; i < fullOnLeds; i++) {
